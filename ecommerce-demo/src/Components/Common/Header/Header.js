@@ -4,7 +4,7 @@ import { FaBars, FaShoppingCart } from "react-icons/fa";
 import logo from "../../../assets/images/logo.png";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // const [cartCount, setCartCount] = useState(0);
+  // const [car// tCount,cartCount, se] = useState(0);
 
   return (
     <header className="py-4 md:py-6 bg-gray-100">
@@ -81,6 +81,73 @@ const Header = () => {
             <NavLink
               to="/cart"
               className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              <div className="-top-2 absolute left-4">
+                <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+                  0
+                </p>
+              </div>
+              <FaShoppingCart className="w-6 h-6" />
+            </NavLink>
+          </div>
+        </div>
+
+        <div
+          className={`${
+            isMobileMenuOpen ? "block" : "hidden"
+          } lg:hidden mt-4 absolute w-full px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-md left-0 z-50`}
+        >
+          <div className="grid gap-4">
+            <NavLink
+              to="/"
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {" "}
+              Home{" "}
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {" "}
+              About{" "}
+            </NavLink>
+
+            <NavLink
+              to="/services"
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {" "}
+              Services{" "}
+            </NavLink>
+
+            <NavLink
+              to="/shop"
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {" "}
+              Shop{" "}
+            </NavLink>
+
+            <NavLink
+              to="/signin"
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {" "}
+              Sign in{" "}
+            </NavLink>
+
+            <NavLink
+              to="/signup"
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {" "}
+              Create account{" "}
+            </NavLink>
+            <NavLink
+              to="/cart"
+              className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
               <div className="-top-2 absolute left-4">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
