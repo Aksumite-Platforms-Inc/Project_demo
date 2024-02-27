@@ -1,11 +1,14 @@
-import React from 'react'
+import Banner from "../../Banner/Banner";
+import Header from "../../Common/Header/Header";
+import Category from "../../Shop/Category";
+import Trendign from "../../Shop/Trendign";
 
 const Shop = () => {
   return (
-    <div>
-      <h1>Shop</h1>
-    </div>
-  )
-}
+    <>
+      <Category />
+    </>
+  );
+};
 
-export default Shop
+export default Shop;

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 const SignIn = () => {
@@ -97,8 +98,6 @@ const SignIn = () => {
           </form>
         </div>
       </div>
-    </div>
-  );
-};
+
 
 export default SignIn;

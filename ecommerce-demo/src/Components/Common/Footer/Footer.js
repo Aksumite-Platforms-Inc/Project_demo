@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   FaFacebook,
   FaTwitter,
@@ -126,5 +127,6 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 export default Footer;
