@@ -1,8 +1,10 @@
+
 import React from 'react'
 import lili from '../../../assets/images/lili.jpg'
 import suzi from '../../../assets/images/suzi.jpg'
 import meri from '../../../assets/images/meri.jpg'
 import kasech from '../../../assets/images/kasech.jpg'
+
 
 function About() {
   return (
@@ -120,7 +122,7 @@ function About() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;

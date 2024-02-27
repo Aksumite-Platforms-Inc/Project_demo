@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { FaQuoteLeft } from 'react-icons/fa';
 // import kids-fashion image from assets images
@@ -9,6 +10,7 @@ import men1 from '../../../assets/images/men1.png'
 import men2 from '../../../assets/images/men2.png'
 import men3 from '../../../assets/images/men3.png'
 import men4 from '../../../assets/images/men4.png'
+
 
 
 function Service() {
@@ -223,7 +225,9 @@ function Service() {
       </div>
     </div>
 
+
   )
+
 }
 
-export default Service
+export default Service;
