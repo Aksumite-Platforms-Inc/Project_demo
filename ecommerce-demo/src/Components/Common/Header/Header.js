@@ -1,10 +1,20 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaShoppingCart } from "react-icons/fa";
 import logo from "../../../assets/images/logo.png";
+import { useCartContext } from "../../../Context/Cart";
+import Cart from "../../Shop/Cart";
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // const [car// tCount,cartCount, se] = useState(0);
+  const [{ basket }, dispatch] = useCartContext();
+  const [cartToggle, setCartToggle] = useState(false);
+  const navLinks = [
+    { to: "/", text: "Home" },
+    { to: "/about", text: "About" },
+    { to: "/services", text: "Services" },
+    { to: "/shop", text: "Shop" },
+  ];
 
   return (
     <header className="py-4 md:py-6 bg-gray-100">
@@ -16,7 +26,7 @@ const Header = () => {
               className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
               <img className="w-auto h-8" src={logo} alt="logo" />
-              <span className="text-xl  text-gray-900 ">xum Shop </span>
+              <span className="text-xl  text-gray-900 ">ksumite Shop </span>
             </NavLink>
           </div>
 
@@ -30,37 +40,15 @@ const Header = () => {
           </div>
 
           <div className="hidden lg:flex lg:ml-10 xl:ml-16 lg:items-center lg:justify-center lg:space-x-8 xl:space-x-16">
-            <NavLink
-              to="/"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Home{" "}
-            </NavLink>
-
-            <NavLink
-              to="/about"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              About{" "}
-            </NavLink>
-
-            <NavLink
-              to="/services"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Services{" "}
-            </NavLink>
-
-            <NavLink
-              to="/shop"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Shop{" "}
-            </NavLink>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+              >
+                {link.text}
+              </NavLink>
+            ))}
           </div>
 
           <div className="hidden lg:ml-auto lg:flex lg:items-center lg:space-x-8 xl:space-x-10">
@@ -68,27 +56,28 @@ const Header = () => {
               to="/signin"
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              {" "}
-              Sign in{" "}
+              Sign in
             </NavLink>
-
             <NavLink
               to="/signup"
               className="px-5 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
             >
               Create account
             </NavLink>
-            <NavLink
-              to="/cart"
-              className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+
+            <div
+              className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
+              onClick={() => setCartToggle(!cartToggle)}
             >
               <div className="-top-2 absolute left-4">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-                  0
+                  {basket?.length || 0}
                 </p>
               </div>
               <FaShoppingCart className="w-6 h-6" />
-            </NavLink>
+            </div>
+
+            {cartToggle && <Cart />}
           </div>
         </div>
 
@@ -98,60 +87,38 @@ const Header = () => {
           } lg:hidden mt-4 absolute w-full px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-md left-0 z-50`}
         >
           <div className="grid gap-4">
-            <NavLink
-              to="/"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Home{" "}
-            </NavLink>
-
-            <NavLink
-              to="/about"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              About{" "}
-            </NavLink>
-
-            <NavLink
-              to="/services"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Services{" "}
-            </NavLink>
-
-            <NavLink
-              to="/shop"
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {" "}
-              Shop{" "}
-            </NavLink>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+              >
+                {link.text}
+              </NavLink>
+            ))}
 
             <NavLink
               to="/signin"
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              {" "}
-              Sign in{" "}
+              Sign in
             </NavLink>
 
             <NavLink
               to="/signup"
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              {" "}
-              Create account{" "}
+              Create account
             </NavLink>
+
             <NavLink
               to="/cart"
               className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+              state={{ cartToggle: true }}
             >
               <div className="-top-2 absolute left-4">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-                  0
+                  {basket?.length || 0}
                 </p>
               </div>
               <FaShoppingCart className="w-6 h-6" />
