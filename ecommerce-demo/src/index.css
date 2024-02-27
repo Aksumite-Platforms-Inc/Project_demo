@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @keyframes mouse-wheel {
   0% {
     opacity: 1;
@@ -19,3 +20,4 @@
 .active {
   color: #ec0c0c;
 }
+

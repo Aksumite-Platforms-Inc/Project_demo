@@ -1,3 +1,4 @@
+
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import Shop from "./Components/Pages/Shop/Shop";
@@ -10,6 +11,7 @@ import SignUp from "./Components/Pages/SignUp/SignUp";
 
 function App() {
   return (
+
     <Routes>
       <Route element={<Shared />}>
         <Route path="/" element={<Home />} />
@@ -22,6 +24,7 @@ function App() {
       </Route>
       <Route path="/cart" element={<Cart />} />
     </Routes>
+
   );
 }
 
