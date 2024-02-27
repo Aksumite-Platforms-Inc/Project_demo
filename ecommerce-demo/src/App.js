@@ -1,9 +1,3 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Service from './Components/Pages/Service/Service';
-import About from './Components/Pages/About/About';
-
-
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import Shop from "./Components/Pages/Shop/Shop";
@@ -16,7 +10,6 @@ import SignUp from "./Components/Pages/SignUp/SignUp";
 
 function App() {
   return (
-
     <Routes>
       <Route element={<Shared />}>
         <Route path="/" element={<Home />} />
@@ -29,8 +22,6 @@ function App() {
       </Route>
       <Route path="/cart" element={<Cart />} />
     </Routes>
-
-
   );
 }
 

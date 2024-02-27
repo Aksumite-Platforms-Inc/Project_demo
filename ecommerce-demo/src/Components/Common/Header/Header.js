@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaBars, FaShoppingCart } from "react-icons/fa";
 import logo from "../../../assets/images/logo.png";
 import { useCartContext } from "../../../Context/Cart";

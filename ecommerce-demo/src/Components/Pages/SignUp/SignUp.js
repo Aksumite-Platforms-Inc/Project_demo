@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 const SignUp = () => {
@@ -21,7 +20,8 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium leading-5 text-gray-700">
+                className="block text-sm font-medium leading-5 text-gray-700"
+              >
                 First Name
               </label>
               <div className="mt-1 rounded-md shadow-sm">
@@ -37,7 +37,8 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium leading-5 text-gray-700">
+                className="block text-sm font-medium leading-5 text-gray-700"
+              >
                 Last Name
               </label>
               <div className="mt-1 rounded-md shadow-sm">
@@ -53,7 +54,8 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-5 text-gray-700">
+                className="block text-sm font-medium leading-5 text-gray-700"
+              >
                 Email Address
               </label>
               <div className="mt-1 rounded-md shadow-sm">
@@ -69,7 +71,8 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-5 text-gray-700">
+                className="block text-sm font-medium leading-5 text-gray-700"
+              >
                 Password
               </label>
               <div className="mt-1 rounded-md shadow-sm relative">
@@ -82,7 +85,8 @@ const SignUp = () => {
                 <span
                   id="togglePassword"
                   className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer z-10"
-                  onClick={togglePasswordVisibility}>
+                  onClick={togglePasswordVisibility}
+                >
                   {isPasswordVisible ? <FiEye /> : <FiEyeOff />}
                 </span>
               </div>
@@ -108,7 +112,8 @@ const SignUp = () => {
               <span className="block w-full rounded-md shadow-sm">
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-500 focus:outline-none focus:border-sky-700 focus:shadow-outline-indigo active:bg-sky-700 transition duration-150 ease-in-out">
+                  className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-500 focus:outline-none focus:border-sky-700 focus:shadow-outline-indigo active:bg-sky-700 transition duration-150 ease-in-out"
+                >
                   Sign up
                 </button>
               </span>
@@ -117,13 +122,16 @@ const SignUp = () => {
               If you have an account,
               <a
                 href="/signin"
-                className="font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                className="font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+              >
                 Signin here
               </a>
             </div>
           </form>
         </div>
       </div>
-
+    </div>
+  );
+};
 
 export default SignUp;
