@@ -3,7 +3,7 @@ import React from 'react'
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
+     <p class="text-blue-500">This text is in blue color.</p>
     </div>
   )
 }
