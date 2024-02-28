@@ -16,6 +16,16 @@ const Header = () => {
     { to: "/shop", text: "Shop" },
   ];
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    setCartToggle(false);
+  };
+
+  const handleCartClick = () => {
+    setIsMobileMenuOpen(false);
+    setCartToggle(!cartToggle);
+  };
+
   return (
     <header className="py-4 md:py-6 bg-gray-100 dark:bg-gray-800">
       <div className="container px-4 mx-auto sm:px-6 lg:px-8">
@@ -45,6 +55,7 @@ const Header = () => {
                 key={link.to}
                 to={link.to}
                 className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-opacity-50 dark:focus:ring-gray-600"
+                onClick={handleLinkClick}
               >
                 {link.text}
               </NavLink>
@@ -55,19 +66,21 @@ const Header = () => {
             <NavLink
               to="/signin"
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-opacity-50 dark:focus:ring-gray-600"
+              onClick={handleLinkClick}
             >
               Sign in
             </NavLink>
             <NavLink
               to="/signup"
               className="px-5 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 dark:border-gray-600"
+              onClick={handleLinkClick}
             >
               Create account
             </NavLink>
 
             <div
               className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer dark:text-gray-400 dark:hover:text-opacity-50 dark:focus:ring-gray-600"
-              onClick={() => setCartToggle(!cartToggle)}
+              onClick={handleCartClick}
             >
               <div className="-top-2 absolute left-4">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
@@ -92,6 +105,7 @@ const Header = () => {
                 key={link.to}
                 to={link.to}
                 className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-opacity-50 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                onClick={handleLinkClick}
               >
                 {link.text}
               </NavLink>
@@ -100,6 +114,7 @@ const Header = () => {
             <NavLink
               to="/signin"
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-opacity-50 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              onClick={handleLinkClick}
             >
               Sign in
             </NavLink>
@@ -107,6 +122,7 @@ const Header = () => {
             <NavLink
               to="/signup"
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-opacity-50 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              onClick={handleLinkClick}
             >
               Create account
             </NavLink>
@@ -115,6 +131,7 @@ const Header = () => {
               to="/cart"
               className="text-gray-900 relative py-2 text-base font-medium transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 hover:bg-gray-800 hover:text-white focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-opacity-50 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               state={{ cartToggle: true }}
+              onClick={handleLinkClick}
             >
               <div className="-top-2 absolute left-4">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">

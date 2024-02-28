@@ -17,10 +17,9 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop" element={<Shop />} />{" "}
+        <Route path="/cart" element={<Cart />} />
       </Route>
-      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 }

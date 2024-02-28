@@ -19,7 +19,7 @@ function Service() {
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 items-center gap-4">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img
-            className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300"
+            className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300 object-cover h-64"
             src={kidsFashion}
             alt=""
           />
@@ -40,7 +40,7 @@ function Service() {
 
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img
-            className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300"
+            className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300 object-cover h-64"
             src={men1}
             alt=""
           />
@@ -59,7 +59,7 @@ function Service() {
         </div>
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img
-            className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300"
+            className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300 object-cover h-64"
             src={men2}
             alt=""
           />
@@ -81,7 +81,7 @@ function Service() {
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 items-center gap-4">
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img
-              className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300"
+              className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300 object-cover h-64"
               src={men3}
               alt=""
             />
@@ -101,7 +101,7 @@ function Service() {
 
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img
-              className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300"
+              className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300 object-cover h-64"
               src={men4}
               alt=""
             />
@@ -120,7 +120,7 @@ function Service() {
           </div>
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img
-              className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300"
+              className="rounded-t-lg hover:scale-105 hover:rotate-3 transition-transform duration-300 object-cover h-64"
               src={Fashion2}
               alt=""
             />

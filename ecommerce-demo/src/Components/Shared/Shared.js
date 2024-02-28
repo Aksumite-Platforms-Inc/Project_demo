@@ -12,7 +12,9 @@ const Shared = () => {
   return (
     <>
       <Header />
-      {!(title === "signup" || title === "signin") && <Banner title={title} />}
+      {!(title === "signup" || title === "signin" || title === "cart") && (
+        <Banner title={title} />
+      )}
       <Outlet context={{ title: "shop" }} />
       {!(
         title === "signup" ||

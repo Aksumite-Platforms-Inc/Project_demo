@@ -15,7 +15,6 @@ const Cart = () => {
   };
   return (
     <>
-      {cartToggle && <Header />}
       <div
         className={`
        ${

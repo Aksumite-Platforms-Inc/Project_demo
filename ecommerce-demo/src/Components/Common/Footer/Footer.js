@@ -38,10 +38,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mx-6 py-10 text-center md:text-left">
-        <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className="ml-14">
-            <h6 className="mb-4 flex items-center justify-center font-semibold  md:justify-start">
+      <div className="mx-6 py-10 text-left">
+        <div className="sm:grid-cols-1  grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+          <div className="ml-0 md:ml-14 px-2 flex-wrap">
+            <h6 className="mb-4 flex items-center  font-semibold  md:justify-start">
               <IoIosPaperPlane className="mr-2" />
               About us
             </h6>
@@ -52,71 +52,71 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="ml-14">
-            <h6 className="mb-4 flex justify-center font-semibold   md:justify-start">
-              FAQ
-            </h6>
-            <ol className="hover:*:underline leading-5 list-decimal ">
-              <li className="mb-4">
-                <Link
-                  to="#!"
-                  className="text-neutral-600 hover:text-sky-600 dark:text-neutral-200 "
-                >
-                  How can I place an order?
-                </Link>
-              </li>
-              <li className="mb-4">
-                <Link
-                  to="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
-                >
-                  What payment methods do you accept?
-                </Link>
-              </li>
-              <li className="mb-4">
-                <Link
-                  to="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
-                >
-                  How can I track my order?
-                </Link>
-              </li>
-              <li className="mb-4">
-                <Link
-                  to="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
-                >
-                  Do you offer international shipping?
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
-                >
-                  What is your return policy?
-                </Link>
-              </li>
-            </ol>
+          <div className="ml-0 md:ml-14 px-2">
+            <h6 className="mb-4 flex font-semibold   md:justify-start">FAQ</h6>
+            <div className="flex flex-col ml-4">
+              <ol className="hover:*:underline leading-5 list-decimal ">
+                <li className="mb-4">
+                  <Link
+                    to="#!"
+                    className="text-neutral-600 hover:text-sky-600 dark:text-neutral-200 "
+                  >
+                    How can I place an order?
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link
+                    to="#!"
+                    className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                  >
+                    What payment methods do you accept?
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link
+                    to="#!"
+                    className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                  >
+                    How can I track my order?
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link
+                    to="#!"
+                    className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                  >
+                    Do you offer international shipping?
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#!"
+                    className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                  >
+                    What is your return policy?
+                  </Link>
+                </li>
+              </ol>
+            </div>
           </div>
 
-          <div className="ml-14">
-            <h6 className="mb-4 flex justify-center font-semibold  md:justify-start">
+          <div className="ml-0 md:ml-14 px-2">
+            <h6 className="mb-4 flex  font-semibold  md:justify-start">
               Contact
             </h6>
-            <p className="mb-4 flex items-center justify-center md:justify-start">
+            <p className="mb-4 flex items-center  md:justify-start">
               <FaHome className="mr-2" />
               Addis Ababa, Ethiopia
             </p>
-            <p className="mb-4 flex items-center justify-center md:justify-start">
+            <p className="mb-4 flex items-center  md:justify-start">
               <MdEmail className="mr-2" />
               axum@gmail.com
             </p>
-            <p className="mb-4 flex items-center justify-center md:justify-start">
+            <p className="mb-4 flex items-center  md:justify-start">
               <FaPhone className="mr-2" />
               0091234561
             </p>
-            <p className="flex items-center justify-center md:justify-start">
+            <p className="flex items-center  md:justify-start">
               <MdLocalPrintshop className="mr-2" />
               +1-907-555-1234
             </p>

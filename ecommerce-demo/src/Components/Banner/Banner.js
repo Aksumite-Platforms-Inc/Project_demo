@@ -33,7 +33,7 @@ const Banner = ({ title }) => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
           <div>
-            <div className="text-center lg:text-left">
+            <div className="text-left md:text-center lg:text-left">
               <h1 className="text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl sm:leading-tight lg:leading-tight lg:text-5xl font-pj">
                 {title ? (
                   <>
@@ -46,7 +46,7 @@ const Banner = ({ title }) => {
                   "Welcome to Aksumite Online Shop"
                 )}
               </h1>
-              <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 sm:mt-8 font-inter">
+              <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 sm:mt-8 font-inter text-left">
                 Aksumite online shop your one-stop destination for curated
                 collection of top-tier products, from fashion to tech gadgets,
                 conveniently accessible at your fingertips.
