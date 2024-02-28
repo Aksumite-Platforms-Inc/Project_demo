@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import cloth from "../../assets/images/cloth.png";
-import cloth2 from "../../assets/images/cloth2.png";
-import cloth3 from "../../assets/images/cloth3.png";
 import cloth4 from "../../assets/images/cloth4.png";
-import product6 from "../../assets/images/product-6.png";
+import elec from "../../assets/images/electronics.png";
+import furn from "../../assets/images/furniture.png";
+import misc from "../../assets/images/mis.png";
+import shoes from "../../assets/images/shoe.png";
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
@@ -12,7 +12,8 @@ import {
 import { NavLink } from "react-router-dom";
 const Banner = ({ title }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [cloth, cloth2, cloth3, cloth4, product6];
+  const images = [cloth4, elec, furn, misc, shoes];
+  const name = ["Cloth", "Electronics", "Furniture", "Miscellaneous", "Shoes"];
   const handleArrowClick = (increment) => {
     setCurrentImageIndex(
       (prevIndex) => (prevIndex + increment + images.length) % images.length
@@ -28,12 +29,12 @@ const Banner = ({ title }) => {
   }, []);
 
   return (
-    <section className="pt-12 pb-12 sm:pb-16 lg:pt-8 bg-gray-100">
+    <section className="pt-12 pb-12 sm:pb-16 lg:pt-8 bg-gray-100 dark:bg-gray-900">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
           <div>
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:leading-tight lg:text-5xl font-pj">
+              <h1 className="text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl sm:leading-tight lg:leading-tight lg:text-5xl font-pj">
                 {title ? (
                   <>
                     <NavLink to=".." className="text-red-500">
@@ -45,7 +46,7 @@ const Banner = ({ title }) => {
                   "Welcome to Aksumite Online Shop"
                 )}
               </h1>
-              <p className="mt-2 text-lg text-gray-600 sm:mt-8 font-inter">
+              <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 sm:mt-8 font-inter">
                 Aksumite online shop your one-stop destination for curated
                 collection of top-tier products, from fashion to tech gadgets,
                 conveniently accessible at your fingertips.
@@ -63,13 +64,13 @@ const Banner = ({ title }) => {
                           name=""
                           id=""
                           placeholder="XXXX-XXXX-XXXX"
-                          className="block w-full px-4 py-2 text-gray-900 placeholder-gray-900 bg-transparent border border-gray-400 outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 rounded-xl sm:border-none sm:focus:ring-0 sm:focus:border-transparent placeholder-opacity-50"
+                          className="block w-full px-4 py-2 text-gray-900 dark:text-white placeholder-gray-900 dark:placeholder-gray-300 bg-transparent border border-gray-400 dark:border-gray-700 outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 rounded-xl sm:border-none sm:focus:ring-0 sm:focus:border-transparent placeholder-opacity-50"
                           required=""
                         />
                         <div className="mt-4 sm:mt-0 sm:absolute sm:inset-y-0 sm:right-0 sm:flex sm:items-center sm:pr-2">
                           <button
                             type="submit"
-                            className="inline-flex px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-lg focus:outline-none focus:bg-gray-600 font-pj hover:bg-gray-600"
+                            className="inline-flex px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 dark:bg-gray-800 rounded-lg focus:outline-none focus:bg-gray-600 font-pj hover:bg-gray-600"
                           >
                             Apply
                           </button>
@@ -88,33 +89,43 @@ const Banner = ({ title }) => {
             </div>
           </div>
           <div>
-            <div className="relative">
+            <div className="relative  py-4">
               <img
-                className="w-full transition-all duration-500 transform hover:scale-110 lg:scale-100 object-contain rounded-lg h-[520px]"
+                className="w-full transition-all duration-500 transform hover:scale-110 lg:scale-100 object-contain rounded-lg h-[540px]"
                 src={images[currentImageIndex]}
                 alt=""
               />
+              <div className="w-full absolute flex justify-center items-center text-xl font-light text-gray-800 dark:text-white bottom-0 rounded-b-lg bg-white bg-opacity-20 dark:bg-gray-800 dark:bg-opacity-10 mt-10">
+                <span className="text-gray-900 dark:text-white font-light text-xl ">
+                  Aksumite
+                  <span className="text-blue-500 font-bold border-b-2 border-blue-300 transition-all duration-300 text-2xl">
+                    {" "}
+                    {name[currentImageIndex]}
+                  </span>{" "}
+                  Collection
+                </span>
+              </div>
               <div className="absolute inset-0 flex justify-between items-center">
                 <MdKeyboardArrowLeft
-                  className="text-5xl text-gray-900 cursor-pointer bg-white rounded-full p-3 hover:bg-gray-200 transition-all duration-300"
+                  className="text-5xl text-gray-900 dark:text-black cursor-pointer bg-white rounded-full p-3 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white transition-all duration-300"
                   onClick={() => handleArrowClick(-1)}
                 />
                 <MdKeyboardArrowRight
-                  className="text-5xl text-gray-900 cursor-pointer bg-white rounded-full p-3 hover:bg-gray-200 transition-all duration-300"
+                  className="text-5xl text-gray-900 dark:text-black  dark:hover:text-white cursor-pointer bg-white rounded-full p-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
                   onClick={() => handleArrowClick(1)}
                 />
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center mt-24 text-black cursor-pointer">
-          <div className="h-16 w-8 border-2 border-gray-400 rounded-full relative">
-            <div className="h-4 w-4 border-2 border-gray-400 rounded-full absolute top-5 wheel"></div>
+        <div className="flex flex-col items-center mt-24 text-black dark:text-white cursor-pointer">
+          <div className="h-16 w-8 border-2 border-gray-400 dark:border-gray-700 rounded-full relative">
+            <div className="h-4 w-4 border-2 border-gray-400 dark:border-gray-700 rounded-full absolute top-5 wheel"></div>
           </div>
           <div className="flex flex-col">
-            <MdKeyboardArrowDown className="block -mb-2 text-2xl text-gray-700 animate-bounce" />
-            <MdKeyboardArrowDown className="block -my-2 text-2xl text-gray-700 animate-bounce" />
-            <MdKeyboardArrowDown className="block -my-2 text-2xl text-gray-700 animate-bounce" />
+            <MdKeyboardArrowDown className="block -mb-2 text-2xl text-gray-700 dark:text-gray-300 animate-bounce" />
+            <MdKeyboardArrowDown className="block -my-2 text-2xl text-gray-700 dark:text-gray-300 animate-bounce" />
+            <MdKeyboardArrowDown className="block -my-2 text-2xl text-gray-700 dark:text-gray-300 animate-bounce" />
           </div>
         </div>
       </div>

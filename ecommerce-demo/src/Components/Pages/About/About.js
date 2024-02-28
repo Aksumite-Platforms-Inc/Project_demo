@@ -7,10 +7,10 @@ import kasech from "../../../assets/images/kasech.jpg";
 function About() {
   return (
     <div>
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-white ">
         <div className="">
           <h1 className="pt-5 text-center font-bold text-4xl pb-5">
-            <span className="relative">
+            <span className="relative ">
               About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
                 Us
@@ -31,9 +31,11 @@ function About() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-100 p-4">
-                <h3 className="text-2xl font-bold mb-4">For Kids:</h3>
-                <p className="text-lg">
+              <div className="bg-gray-100 p-4 dark:bg-gray-800 dark:border-gray-700">
+                <h3 className="text-2xl font-bold mb-4 dark:text-gray-100">
+                  For Kids:
+                </h3>
+                <p className="text-lg dark:text-gray-100">
                   We understand the importance of dressing children in stylish
                   and age-appropriate clothing. Our collection for kids includes
                   a wide range of options, including trendy outfits, comfortable
@@ -44,9 +46,11 @@ function About() {
                 </p>
               </div>
 
-              <div className="bg-gray-100 p-4">
-                <h3 className="text-2xl font-bold mb-4">For Men:</h3>
-                <p className="text-lg">
+              <div className="bg-gray-100 p-4 dark:bg-gray-800 dark:border-gray-700">
+                <h3 className="text-2xl font-bold mb-4 dark:text-gray-100">
+                  For Men:
+                </h3>
+                <p className="text-lg dark:text-gray-100">
                   Our men's collection features a variety of stylish and
                   on-trend clothing options. Whether you're looking for casual
                   wear, formal attire, or sporty outfits, we have you covered.
@@ -57,9 +61,11 @@ function About() {
                 </p>
               </div>
 
-              <div className="bg-gray-100 p-4">
-                <h3 className="text-2xl font-bold mb-4">For Girls:</h3>
-                <p className="text-lg">
+              <div className="bg-gray-100 p-4 dark:bg-gray-800 dark:border-gray-700">
+                <h3 className="text-2xl font-bold mb-4 dark:text-gray-100">
+                  For Girls:
+                </h3>
+                <p className="text-lg dark:text-gray-100">
                   Our girls' collection showcases an array of fashionable
                   clothing choices that cater to different tastes and
                   personalities. From cute dresses and skirts to trendy tops and
@@ -72,7 +78,7 @@ function About() {
               </div>
             </div>
 
-            <p className="text-lg mt-8">
+            <p className="text-lg mt-8 ">
               At Axumite Clothes Shopping Company, we prioritize customer
               satisfaction and strive to provide an enjoyable shopping
               experience. We offer a user-friendly website and convenient
@@ -82,7 +88,7 @@ function About() {
               ensuring that any queries or concerns are promptly addressed.
             </p>
 
-            <p className="text-lg mt-8">
+            <p className="text-lg mt-8 ">
               We take pride in being a reliable and trusted clothing company,
               and we continuously update our inventory to bring you the latest
               fashion trends and styles. Whether you're shopping for your kids,

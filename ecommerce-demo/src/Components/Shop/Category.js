@@ -3,10 +3,9 @@ import { FaCartPlus } from "react-icons/fa";
 import Rating from "react-rating-stars-component";
 import { NavLink } from "react-router-dom";
 import Trendign from "./Trendign";
-import { useCartContext } from "../../Context/Cart";
+import { useCartContext } from "../../Context/CartContext";
 const Category = ({ quantity }) => {
   const [{ basket }, dispatch] = useCartContext();
-  console.log(basket);
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(8);
@@ -50,7 +49,7 @@ const Category = ({ quantity }) => {
 
   return (
     <>
-      <section className="py-12 bg-white sm:py-16 lg:py-20">
+      <section className="py-12 bg-white sm:py-16 lg:py-20 ">
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto text-center">
             <Trendign />

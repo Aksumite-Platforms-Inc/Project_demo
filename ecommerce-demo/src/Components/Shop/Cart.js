@@ -1,4 +1,4 @@
-import { useCartContext } from "../../Context/Cart";
+import { useCartContext } from "../../Context/CartContext";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useLocation } from "react-router-dom";

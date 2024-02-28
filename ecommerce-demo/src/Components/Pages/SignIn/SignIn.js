@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 const SignIn = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -7,7 +8,7 @@ const SignIn = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
   return (
-    <div className="  bg-gray-100 flex flex-col justify-start py-12 sm:px-6 lg:px-8">
+    <div className="   flex flex-col justify-start py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
           Sign in to your account
@@ -15,12 +16,12 @@ const SignIn = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" action="#" method="POST">
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-5 text-gray-700"
+                className="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300"
               >
                 Email address
               </label>
@@ -37,7 +38,7 @@ const SignIn = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-5 text-gray-700"
+                className="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300"
               >
                 Password
               </label>
@@ -67,16 +68,19 @@ const SignIn = () => {
                 />
                 <label
                   htmlFor="remember_me"
-                  className="ml-2 block text-sm leading-5 text-gray-900"
+                  className="ml-2 block text-sm leading-5 text-gray-900 dark:text-gray-300"
                 >
                   Remember me
                 </label>
               </div>
 
               <div className="text-sm leading-5">
-                <a className="font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                <Link
+                  to="/forgot-password" // Replace the <a> tag with <Link> and set the "to" prop to the desired URL
+                  className="font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+                >
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -91,14 +95,14 @@ const SignIn = () => {
               </span>
             </div>
 
-            <div className="text-sm leading-5">
-              If you don't have an account,
-              <a
-                href="/signup"
-                className="font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            <div className="text-sm leading-5 dark:text-gray-300 text-center">
+              don't have an account?
+              <Link
+                to="/signup" // Replace the <a> tag with <Link> and set the "to" prop to the desired URL
+                className="font-medium ml-2 text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150"
               >
                 Create account?
-              </a>
+              </Link>
             </div>
           </form>
         </div>
