@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaTwitter,
@@ -11,29 +11,30 @@ import {
 import { MdEmail, MdLocalPrintshop } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { IoIosPaperPlane } from "react-icons/io";
+
 const Footer = () => {
   return (
-    <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+    <footer className="bg-neutral-100 text-center text-neutral-600  lg:text-left dark:bg-neutral-600 dark:text-neutral-200">
       <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
         <div className="mr-12 hidden lg:block">
           <span>Get connected with us on social networks:</span>
         </div>
         <div className="flex justify-center">
-          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+          <Link to="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <FaFacebook />
-          </a>
-          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+          </Link>
+          <Link to="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <FaTwitter />
-          </a>
-          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+          </Link>
+          <Link to="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <FaGooglePlusG />
-          </a>
-          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+          </Link>
+          <Link to="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <FaInstagram />
-          </a>
-          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+          </Link>
+          <Link to="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <FaLinkedin />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -57,39 +58,44 @@ const Footer = () => {
             </h6>
             <ol className="hover:*:underline leading-5 list-decimal ">
               <li className="mb-4">
-                <a
-                  href="#!"
-                  className="text-neutral-600 hover:text-sky-600 dark:text-neutral-200 ">
+                <Link
+                  to="#!"
+                  className="text-neutral-600 hover:text-sky-600 dark:text-neutral-200 "
+                >
                   How can I place an order?
-                </a>
+                </Link>
               </li>
               <li className="mb-4">
-                <a
-                  href="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200">
+                <Link
+                  to="#!"
+                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                >
                   What payment methods do you accept?
-                </a>
+                </Link>
               </li>
               <li className="mb-4">
-                <a
-                  href="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200">
+                <Link
+                  to="#!"
+                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                >
                   How can I track my order?
-                </a>
+                </Link>
               </li>
               <li className="mb-4">
-                <a
-                  href="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200">
+                <Link
+                  to="#!"
+                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                >
                   Do you offer international shipping?
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#!"
-                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200">
+                <Link
+                  to="#!"
+                  className="text-neutral-600  hover:text-sky-600 dark:text-neutral-200"
+                >
                   What is your return policy?
-                </a>
+                </Link>
               </li>
             </ol>
           </div>
@@ -121,12 +127,11 @@ const Footer = () => {
       <div className="terms flex justify-between px-4 bg-gray-200">
         <span>© Aksumite Shoping 2024. All rights reserved.</span>
         <span className="hover:underline">
-          <a href="#">Terms· Privacy Policy</a>
+          <Link to="#">Terms· Privacy Policy</Link>
         </span>
       </div>
     </footer>
   );
 };
-
 
 export default Footer;

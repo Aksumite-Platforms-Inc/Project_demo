@@ -9,7 +9,7 @@ import men4 from "../../../assets/images/men4.png";
 
 function Service() {
   return (
-    <div className="pl-10 pr-10">
+    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mb-6">
       <h1 className="pt-10 text-center font-bold text-4xl pb-10 text-gradient bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
         Our{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
@@ -31,8 +31,8 @@ function Service() {
               Kids fashion offers a delightful array of styles, colors, and
               trends.
             </p>
-            <div className="relative inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
-              <span className="absolute top-0 left-0 right-0 bottom-0 bg-blue-800 opacity-0 transform scale-0 rounded-lg transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"></span>
+            <div className="relative inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24a0ed] rounded-lg hover:bg-[#34a0ed] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
+              <span className="absolute top-0 left-0 right-0 bottom-0 bg-[#24a0ed] opacity-0 transform scale-0 rounded-lg transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"></span>
               <span className="relative z-10">Read more</span>
             </div>
           </div>
@@ -52,7 +52,7 @@ function Service() {
               Kids fashion offers a delightful array of styles, colors, and
               trends.
             </p>
-            <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24a0ed] rounded-lg hover:bg-[#34a0ed] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Read more
             </div>
           </div>
@@ -71,7 +71,7 @@ function Service() {
               Kids fashion offers a delightful array of styles, colors, and
               trends.
             </p>
-            <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24a0ed] rounded-lg hover:bg-[#34a0ed] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Read more
             </div>
           </div>
@@ -93,7 +93,7 @@ function Service() {
                 Kids fashion offers a delightful array of styles, colors, and
                 trends.
               </p>
-              <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24a0ed] rounded-lg hover:bg-[#34a0ed] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
               </div>
             </div>
@@ -113,7 +113,7 @@ function Service() {
                 Kids fashion offers a delightful array of styles, colors, and
                 trends.
               </p>
-              <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24a0ed] rounded-lg hover:bg-[#34a0ed] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
               </div>
             </div>
@@ -132,7 +132,7 @@ function Service() {
                 Kids fashion offers a delightful array of styles, colors, and
                 trends.
               </p>
-              <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24a0ed] rounded-lg hover:bg-[#24a0ed] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
               </div>
             </div>

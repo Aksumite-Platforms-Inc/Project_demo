@@ -50,36 +50,40 @@ const Banner = ({ title }) => {
                 collection of top-tier products, from fashion to tech gadgets,
                 conveniently accessible at your fingertips.
               </p>
-              {title ? (
+              {title !== "services" && title !== "about" && (
                 <>
-                  <span className="block mt-6 text-xs font-bold text-gray-500 dark:text-gray-500">
-                    Add coupon code to get a big discount!
-                  </span>
-                  <div className="relative p-2 sm:border sm:border-gray-400 group sm:rounded-xl sm:focus-within:ring-1 mt-8 sm:focus-within:ring-gray-900 sm:focus-within:border-gray-900">
-                    <input
-                      type="text"
-                      name=""
-                      id=""
-                      placeholder="XXXX-XXXX-XXXX"
-                      className="block w-full px-4 py-2 text-gray-900 placeholder-gray-900 bg-transparent border border-gray-400 outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 rounded-xl sm:border-none sm:focus:ring-0 sm:focus:border-transparent placeholder-opacity-50"
-                      required=""
-                    />
-                    <div className="mt-4 sm:mt-0 sm:absolute sm:inset-y-0 sm:right-0 sm:flex sm:items-center sm:pr-2">
-                      <button
-                        type="submit"
-                        className="inline-flex px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-lg focus:outline-none focus:bg-gray-600 font-pj hover:bg-gray-600"
-                      >
-                        Apply
+                  {title ? (
+                    <>
+                      <span className="block mt-6 text-xs font-bold text-gray-500 dark:text-gray-500">
+                        Add coupon code to get a big discount!
+                      </span>
+                      <div className="relative p-2 sm:border sm:border-gray-400 group sm:rounded-xl sm:focus-within:ring-1 mt-8 sm:focus-within:ring-gray-900 sm:focus-within:border-gray-900">
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          placeholder="XXXX-XXXX-XXXX"
+                          className="block w-full px-4 py-2 text-gray-900 placeholder-gray-900 bg-transparent border border-gray-400 outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 rounded-xl sm:border-none sm:focus:ring-0 sm:focus:border-transparent placeholder-opacity-50"
+                          required=""
+                        />
+                        <div className="mt-4 sm:mt-0 sm:absolute sm:inset-y-0 sm:right-0 sm:flex sm:items-center sm:pr-2">
+                          <button
+                            type="submit"
+                            className="inline-flex px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-lg focus:outline-none focus:bg-gray-600 font-pj hover:bg-gray-600"
+                          >
+                            Apply
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex items-center justify-center mt-10 space-x-6 lg:justify-start sm:space-x-8">
+                      <button className="text-red hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-red-500 bg-white px-3 text-red-500 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-red-500 before:transition-all before:duration-500 hover:text-white hover:shadow-red-500 hover:before:left-0 hover:before:w-full">
+                        <span className="relative z-10">Shop Now</span>
                       </button>
                     </div>
-                  </div>
+                  )}
                 </>
-              ) : (
-                <div className="flex items-center justify-center mt-10 space-x-6 lg:justify-start sm:space-x-8">
-                  <button className="text-red hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-red-500 bg-white px-3 text-red-500 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-red-500 before:transition-all before:duration-500 hover:text-white hover:shadow-red-500 hover:before:left-0 hover:before:w-full">
-                    <span className="relative z-10">Shop Now</span>
-                  </button>
-                </div>
               )}
             </div>
           </div>
