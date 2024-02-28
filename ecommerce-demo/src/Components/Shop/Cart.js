@@ -21,7 +21,7 @@ const Cart = () => {
        ${
          cartToggle
            ? "relative flex flex-col  items-center justify-center"
-           : "absolute top-20 z-50 right-14 max-w-lg"
+           : "absolute top-16 right-2 z-50  max-w-lg"
        }
       lg:px-8  bg-white py-4 shadow-lg rounded-md dark:bg-dark-2 max-h-[90vh] overflow-y-auto`}
       >
