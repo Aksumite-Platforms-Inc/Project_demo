@@ -1,9 +1,9 @@
 import Product from "../models/Products.models.js";
 
 export const createProduct = async (req, res) => {
-    const { name, image, brand, category, description, price, countInStock, rating, numReviews } = req.body;
+    const { name, brand, category, description, price, countInStock, rating, numReviews } = req.body;
 
-    if (!name || !image || !brand || !category || !description || !price || countInStock || rating || numReviews) {
+    if (!name || !image || !brand || !category || !description || !price || countInStock ) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -34,25 +34,13 @@ export const getProducts = async (req, res) => {
         res.status(500).json({ message: error.message || "Something went wrong" });
     }
 };
-export const getProductById = async (req, res) => {
-    const { productId } = req.params;
 
-    try {
-        const product = await Product.findById(productId);
-        if (!product) {
-            return res.status(404).json({ message: "Product not found" });
-        }
-        res.status(200).json({ product });
-    } catch (error) {
-        res.status(500).json({ message: error.message || "Something went wrong" });
-    }
-};
 
 export const updateProduct = async (req, res) => {
     const { productId } = req.params;
-    const { name, image, brand, category, description, price, countInStock, rating, numReviews } = req.body;
+    const { name, brand, category, description, price, countInStock, rating, numReviews } = req.body;
 
-    if (!name || !image || !brand || !category || !description || !price || countInStock || rating || numReviews) {
+    if (!name || !image || !brand || !category || !description || !price || countInStock ) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
