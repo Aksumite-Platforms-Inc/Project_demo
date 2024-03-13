@@ -37,7 +37,7 @@ export const getUsers = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  const { userid } = req.params;
+  const { userid } = req.user;
   const { firstname, lastname, email, username, password, isAdmin } = req.body;
   if (!firstname || !lastname || !email || !username || !password) {
     return res.status(400).json({ message: "All fields are required" });
@@ -62,7 +62,7 @@ export const updateUser = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-  const { userid } = req.params;
+  const { userid } = req.user;
   try {
     const user = await User.findByIdAndDelete(userid);
     res.status(200).json({ message: "User deleted successfully" });
