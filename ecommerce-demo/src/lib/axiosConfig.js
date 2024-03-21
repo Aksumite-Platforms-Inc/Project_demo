@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001/api/";
+axios.defaults.baseURL = "https://aksumite-online-shop-ymwg.vercel.app/api";
 export async function request(method, url, data = null, token = null) {
   try {
     const response = await axios({

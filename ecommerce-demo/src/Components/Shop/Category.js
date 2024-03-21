@@ -116,7 +116,7 @@ const Category = ({ quantity }) => {
                   <div className="overflow-hidden aspect-w-1 aspect-h-1">
                     <img
                       className="object-cover w-full h-96 transition-all duration-300 group-hover:scale-125"
-                      src={`http://localhost:3001/api/all/images/${product.image}`}
+                      src={`https://aksumite-online-shop-ymwg.vercel.app/api/all/images/${product.image}`}
                       alt=""
                     />
                     {hoveredProduct === index && (

@@ -69,7 +69,7 @@ const Cart = ({ basketZero }) => {
                   <div className="flex w-full space-x-2 sm:space-x-4">
                     <img
                       className="flex-shrink-0 object-cover w-12 h-12 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-                      src={`http://localhost:3001/api/all/images/${product.productid.image}`}
+                      src={`https://aksumite-online-shop-ymwg.vercel.app/api/all/images/${product.productid.image}`}
                       alt={product.productid.productName}
                     />
                     <div className="flex flex-col justify-between w-full pb-4">
