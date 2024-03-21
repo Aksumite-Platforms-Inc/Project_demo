@@ -1,13 +1,12 @@
-import Cart from "../models/Cart.js";
+import mongoose, { Mongoose } from "mongoose";
+import Cart from "../models/Carts.models.js";
 
 // Add a product to the cart
 export const addToCart = async (req, res) => {
   const { quantity } = req.body;
   const { userid } = req.user;
   const { productid } = req.params;
-  if (!quantity) {
-    return res.status(400).json({ message: "quantity is requred" });
-  }
+
   try {
     // Check if the cart already exists for the user
     let cart = await Cart.findOne({ userid });
@@ -18,12 +17,12 @@ export const addToCart = async (req, res) => {
     } else {
       // If cart exists, check if the product already exists in the cart
       const existingItemIndex = cart.cartItems.findIndex(
-        (item) => item.productid === productid
+        (item) => item.productid == String(productid)
       );
 
       if (existingItemIndex !== -1) {
         // If the product already exists, update its quantity
-        cart.cartItems[existingItemIndex].quantity += quantity;
+        ++cart.cartItems[existingItemIndex].quantity;
       } else {
         // If the product doesn't exist, add it to the cart
         cart.cartItems.push({ productid, quantity });
@@ -51,7 +50,7 @@ export const getCart = async (req, res) => {
       return res.status(404).json({ message: "Cart not found" });
     }
 
-    res.status(200).json({ cart });
+    res.status(200).json(cart);
   } catch (error) {
     res.status(500).json({ message: error.message || "Something went wrong" });
   }
@@ -71,7 +70,7 @@ export const removeFromCart = async (req, res) => {
 
     // Remove the product from the cart
     cart.cartItems = cart.cartItems.filter(
-      (item) => item.productid !== productid
+      (item) => item.productid != String(productid)
     );
 
     // Save the updated cart

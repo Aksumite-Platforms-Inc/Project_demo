@@ -2,7 +2,7 @@ import User from "../models/Users.models.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 export const createUser = async (req, res) => {
-  const { firstname, lastname, email, username, password, isAdmin } = req.body;
+  const { firstname, lastname, email, username, password } = req.body;
   if (!firstname || !lastname || !email || !username || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
@@ -18,7 +18,6 @@ export const createUser = async (req, res) => {
       email,
       username,
       password: hashedPassword,
-      isAdmin,
     });
     user.password = undefined;
     res.status(201).json({ user });
@@ -30,7 +29,7 @@ export const createUser = async (req, res) => {
 export const getUsers = async (req, res) => {
   try {
     const user = await User.find({}, { password: 0, __v: 0 });
-    res.status(200).json({ user });
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message || "Something went wrong" });
   }
@@ -38,7 +37,7 @@ export const getUsers = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const { userid } = req.user;
-  const { firstname, lastname, email, username, password, isAdmin } = req.body;
+  const { firstname, lastname, email, username, password } = req.body;
   if (!firstname || !lastname || !email || !username || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
@@ -52,7 +51,7 @@ export const updateUser = async (req, res) => {
     user.email = email;
     user.username = username;
     user.password = bcryptjs.hashSync(password, 10);
-    user.isAdmin = isAdmin || false;
+    user.isAdmin = false;
     await user.save();
     user.password = undefined;
     res.status(200).json({ user });
@@ -62,7 +61,7 @@ export const updateUser = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-  const { userid } = req.user;
+  const { userid } = req.params;
   try {
     const user = await User.findByIdAndDelete(userid);
     res.status(200).json({ message: "User deleted successfully" });
@@ -101,4 +100,8 @@ export const login = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message || "Something went wrong" });
   }
+};
+
+export const checkUser = async (req, res) => {
+  res.status(200).json({ user: req.user });
 };

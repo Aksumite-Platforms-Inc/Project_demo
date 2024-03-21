@@ -6,6 +6,7 @@ import Footer from "../Common/Footer/Footer";
 import NewsLetter from "../Common/NewsLetter/NewsLetter";
 import TimeCounter from "../TimeCounter/TimeCounter";
 import CarouselSlide from "../Carousel/Carousel";
+import Toast from "../Toast/Toast";
 const Shared = () => {
   const location = useLocation();
   const title = location.pathname.split("/")[1] || null;
@@ -24,6 +25,7 @@ const Shared = () => {
         title === "services"
       ) && (
         <>
+          <Toast />
           <TimeCounter />
           <CarouselSlide />
         </>

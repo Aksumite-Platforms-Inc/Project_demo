@@ -7,11 +7,16 @@ import {
   updateUser,
   deleteUser,
   login,
+  checkUser,
 } from "../controllers/Users.controllers.js";
-UsersRouter.get("/", getUsers);
+import {
+  authMiddleware,
+  adminMiddleware,
+} from "../middlewares/Auth.middlewares.js";
+UsersRouter.get("/", authMiddleware, adminMiddleware, getUsers);
 UsersRouter.post("/register", createUser);
 UsersRouter.post("/login", login);
-UsersRouter.put("/:userid", updateUser);
-UsersRouter.delete("/:userid", deleteUser);
-
+UsersRouter.put("/", authMiddleware, updateUser);
+UsersRouter.delete("/:userid", authMiddleware, deleteUser);
+UsersRouter.get("/checkuser", authMiddleware, checkUser);
 export default UsersRouter;

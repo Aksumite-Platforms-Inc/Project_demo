@@ -7,32 +7,40 @@ import { FaCartPlus } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useCartContext } from "../../Context/CartContext";
 import { responsive } from "./CarouselData";
+import { getAllProducts } from "../../service/products.services";
+import { addCart } from "../../service/cart.services";
 const CarouselSlide = () => {
   const [products, setProducts] = useState([]);
-  const [{ basket }, dispatch] = useCartContext();
+  const {
+    state: { basket },
+    dispatch,
+  } = useCartContext();
   const [hoveredProduct, setHoveredProduct] = useState(null);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const data = await response.json();
-        setProducts(data.slice(15, 30));
+        const response = await getAllProducts();
+        setProducts(response);
       } catch (error) {
         console.log(error);
       }
     };
     fetchProducts();
   }, []);
-
-  const handleAddToCart = (product) => {
+  const token = localStorage.getItem("token");
+  const handleAddToCart = async (product) => {
+    const response = await addCart(null, token, product._id);
+    dispatch({
+      type: "SET_TOAST",
+      toasts: {
+        open: true,
+        message: "Product added to cart",
+        type: "success",
+      },
+    });
     dispatch({
       type: "ADD_TO_CART",
-      item: {
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        image: product.image,
-      },
+      item: product,
     });
     setHoveredProduct(null);
   };
@@ -72,67 +80,65 @@ const CarouselSlide = () => {
           removeArrowOnDeviceType={["tablet", "mobile"]}
           dotListClass="custom-dot-list-style"
         >
-          {products?.map((product, index) => (
-            <div
-              key={product.id}
-              className="relative group"
-              onMouseEnter={() => setHoveredProduct(index)}
-              onMouseLeave={() => setHoveredProduct(null)}
-            >
-              <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                <img
-                  className="object-cover w-full h-96 transition-all duration-300 group-hover:scale-125"
-                  src={product.image}
-                  alt=""
-                />
-                {hoveredProduct === index && (
-                  <div className="absolute inset-0 flex items-center justify-center z-50">
-                    <button
-                      className={`text-white transition-all duration-200 bg-gray-900 bg-opacity-50 rounded-full p-2 hover:bg-opacity-100 focus:outline-none focus:bg-opacity-100 ${
-                        basket.some((item) => item.id === product.id) &&
-                        "cursor-not-allowed opacity-50"
-                      }`}
-                      onClick={() => handleAddToCart(product)}
-                      disabled={basket.some((item) => item.id === product.id)}
-                    >
-                      {basket.some((item) => item.id === product.id)
-                        ? "Added"
-                        : "Add to cart"}{" "}
-                      <FaCartPlus className="inline-block ml-2" />
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div className="flex items-start justify-between mt-4 space-x-4">
-                <div>
-                  <h3 className="text-xs font-bold text-gray-900 sm:text-sm md:text-base">
-                    <Link to="." title="">
-                      {product.title}
-                      <span
-                        className="absolute inset-0"
-                        aria-hidden="true"
-                      ></span>
-                    </Link>
-                  </h3>
-                  <div className="flex items-center mt-2.5 space-x-px">
-                    <Rating
-                      count={5}
-                      size={16}
-                      activeColor="#ffd700"
-                      isHalf={true}
-                      value={Math.floor(Math.random() * 5 + 1)}
-                      edit={false}
+          {products?.map(
+            (product, index) =>
+              product.category === "Women Clothing" && (
+                <div
+                  key={product.id}
+                  className="relative group"
+                  onMouseEnter={() => setHoveredProduct(index)}
+                  onMouseLeave={() => setHoveredProduct(null)}
+                >
+                  <div className="overflow-hidden aspect-w-1 aspect-h-1">
+                    <img
+                      className="object-cover w-full h-96 transition-all duration-300 group-hover:scale-125"
+                      src={`http://localhost:3001/api/all/images/${product.image}`}
+                      alt=""
                     />
+                    {hoveredProduct === index && (
+                      <div className="absolute inset-0 flex items-center justify-center z-50">
+                        <button
+                          className={`text-white transition-all duration-200 bg-gray-900 bg-opacity-50 rounded-full p-2 hover:bg-opacity-100 focus:outline-none focus:bg-opacity-100
+                          `}
+                          onClick={() => handleAddToCart(product)}
+                        >
+                          Add to cart
+                          <FaCartPlus className="inline-block ml-2" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-start justify-between mt-4 space-x-4">
+                    <div>
+                      <h3 className="text-xs font-bold text-gray-900 sm:text-sm md:text-base">
+                        <Link to="." title="">
+                          {product.productName}
+                          <span
+                            className="absolute inset-0"
+                            aria-hidden="true"
+                          ></span>
+                        </Link>
+                      </h3>
+                      <div className="flex items-center mt-2.5 space-x-px">
+                        <Rating
+                          count={5}
+                          size={16}
+                          activeColor="#ffd700"
+                          isHalf={true}
+                          value={Math.floor(Math.random() * 5 + 1)}
+                          edit={false}
+                        />
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs font-bold text-gray-900 sm:text-sm md:text-base">
+                        ${product.price}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs font-bold text-gray-900 sm:text-sm md:text-base">
-                    ${product.price}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+              )
+          )}
         </Carousel>
       </div>
     </section>

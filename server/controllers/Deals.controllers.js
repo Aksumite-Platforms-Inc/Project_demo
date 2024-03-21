@@ -17,7 +17,7 @@ export const createDeal = async (req, res) => {
       endDate,
       isActive,
     });
-    res.status(201).json({ deal });
+    res.status(201).json(deal);
   } catch (error) {
     res.status(500).json({ message: error.message || "Something went wrong" });
   }
@@ -27,7 +27,7 @@ export const createDeal = async (req, res) => {
 export const getDeals = async (req, res) => {
   try {
     const deals = await Deal.find({});
-    res.status(200).json({ deals });
+    res.status(200).json(deals);
   } catch (error) {
     res.status(500).json({ message: error.message || "Something went wrong" });
   }

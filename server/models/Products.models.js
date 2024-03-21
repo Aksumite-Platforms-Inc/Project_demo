@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 
 const productSchema = new Schema(
   {
-    name: {
+    productName: {
       type: String,
       required: true,
     },
@@ -20,7 +20,7 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
-    description: {
+    productDetails: {
       type: String,
       required: true,
     },
