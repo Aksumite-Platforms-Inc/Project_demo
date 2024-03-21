@@ -25,6 +25,9 @@ app.use(
   "/api/all/images",
   express.static(path.join(__dirname, "public/uploads"))
 );
+app.get("/", (req, res) => {
+  res.send("Welcome to Ecommerce API");
+});
 main()
   .then(() => {
     app.listen(PORT, () => {
