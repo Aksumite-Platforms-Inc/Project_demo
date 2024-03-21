@@ -2,17 +2,44 @@ import { useCartContext } from "../../Context/CartContext";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useLocation } from "react-router-dom";
-import Header from "../Common/Header/Header";
-const Cart = () => {
-  const [{ basket }, dispatch] = useCartContext();
+import { clearCart, getAllCarts } from "../../service/cart.services";
+import { useEffect, useState } from "react";
+const Cart = ({ basketZero }) => {
+  const { state, dispatch } = useCartContext();
   const location = useLocation();
   const cartToggle = location.state?.cartToggle || false;
-  const handleRemoveFromCart = (id) => {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      id: id,
-    });
+  const token = localStorage.getItem("token");
+  const [cartItems, setCartItems] = useState([]);
+  const handleRemoveFromCart = async (id) => {
+    try {
+      const response = await clearCart(id, token);
+      dispatch({
+        type: "REMOVE_FROM_CART",
+        id,
+      });
+      basketZero(response.cartItems?.length);
+      console.log(state.basket?.length, "cart items length");
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  //get the cart items from the database and display them
+  useEffect(() => {
+    const getCartItems = async () => {
+      try {
+        const response = await getAllCarts(token);
+        setCartItems(response);
+        console.log(response);
+        basketZero(response.cartItems.length);
+        console.log(state.basket?.length, "cart items lengthd");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCartItems();
+  }, [state, token, dispatch]);
+
   return (
     <>
       <div
@@ -24,7 +51,7 @@ const Cart = () => {
        }
       lg:px-8  bg-white py-4 shadow-lg rounded-md dark:bg-dark-2 max-h-[90vh] overflow-y-auto`}
       >
-        {basket?.length === 0 ? (
+        {!cartItems?.cartItems?.length ? (
           <div className="flex flex-col items-center justify-center w-full h-full space-y-4">
             <h2 className="text-2xl font-semibold">Your cart is empty</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -34,35 +61,46 @@ const Cart = () => {
         ) : (
           <>
             <ul>
-              {basket?.map((item) => (
+              {cartItems.cartItems.map((product) => (
                 <li
-                  key={item.id}
+                  key={product.productid._id}
                   className="flex flex-col py-6 sm:flex-row sm:justify-between"
                 >
                   <div className="flex w-full space-x-2 sm:space-x-4">
                     <img
                       className="flex-shrink-0 object-cover w-12 h-12 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-                      src={item.image}
-                      alt={item.title}
+                      src={`http://localhost:3001/api/all/images/${product.productid.image}`}
+                      alt={product.productid.productName}
                     />
                     <div className="flex flex-col justify-between w-full pb-4">
                       <div className="flex justify-between w-full pb-2 space-x-2">
                         <div className="space-y-1">
                           <h3 className="text-sm font-semibold leadi sm:pr-8">
-                            {item.title}
+                            {product.productid.productName}
                           </h3>
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-semibold">
-                            {"$" + item.price}
+                            {"$" + product.productid.price}
                           </p>
                         </div>
                       </div>
+
+                      <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2">
+                          <span className="text-sm font-semibold">
+                            {`Quantity: ${product.quantity} `}
+                          </span>
+                        </div>
+                      </div>
+
                       <div className="flex text-sm divide-x">
                         <button
                           type="button"
                           className="flex items-center px-2 py-1 pl-0 space-x-1"
-                          onClick={() => handleRemoveFromCart(item.id)}
+                          onClick={() =>
+                            handleRemoveFromCart(product.productid._id)
+                          }
                         >
                           <RiDeleteBinLine className="w-4 h-4 fill-current" />
                           <span>Remove</span>
@@ -84,7 +122,11 @@ const Cart = () => {
               <p>
                 Total amount:
                 <span className="font-semibold">
-                  {"$" + basket?.reduce((acc, item) => acc + item.price, 0)}
+                  {"$" +
+                    cartItems.cartItems.reduce(
+                      (a, c) => a + c.productid.price,
+                      0
+                    )}
                 </span>
               </p>
               <p className="text-sm dark:text-gray-400">

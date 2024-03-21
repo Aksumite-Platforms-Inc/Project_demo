@@ -7,11 +7,11 @@ import CartProvider from "./Context/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <CartProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <CartProvider>
       <App />
-    </BrowserRouter>
-  </CartProvider>
+    </CartProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

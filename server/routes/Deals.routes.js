@@ -7,9 +7,13 @@ import {
   updateDeal,
   deleteDeal,
 } from "../controllers/Deals.controllers.js";
+import {
+  authMiddleware,
+  adminMiddleware,
+} from "../middlewares/Auth.middlewares.js";
 DealsRouter.get("/", getDeals);
-DealsRouter.post("/create", createDeal);
-DealsRouter.put("/:dealid", updateDeal);
-DealsRouter.delete("/:dealid", deleteDeal);
+DealsRouter.post("/create", authMiddleware, adminMiddleware, createDeal);
+DealsRouter.put("/:dealid", authMiddleware, adminMiddleware, updateDeal);
+DealsRouter.delete("/:dealid", authMiddleware, adminMiddleware, deleteDeal);
 
 export default DealsRouter;
