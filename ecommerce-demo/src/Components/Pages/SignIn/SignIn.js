@@ -7,8 +7,8 @@ import { useCartContext } from "../../../Context/CartContext";
 const SignIn = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    email: "test_demo@gmail.com",
+    password: "test_demo_123",
   });
   const { state, dispatch } = useCartContext();
   const navigate = useNavigate();
